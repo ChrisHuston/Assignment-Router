@@ -1,0 +1,39 @@
+body { padding-top: 60px; }
+
+.k-bar {
+    background-color: #fdfdfd;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-top:5px;
+    padding-bottom: 0;
+    margin-top:5px;
+    margin-bottom: 5px;
+    height:45px;
+}
+
+.k-bar input {
+    display:inline-block;
+    width:200px;
+}
+
+.k-bar .form-control {
+    width: 200px;
+    display: inline-block !important;
+}
+
+.k-bar .navbar-btn {
+    margin-top:0 !important;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 400px;
+    margin-bottom: 20px;
+}
+
+.admin-grid {
+    border: 1px solid rgb(212,212,212);
+    height: 300px;
+    margin-bottom: 20px;
+}

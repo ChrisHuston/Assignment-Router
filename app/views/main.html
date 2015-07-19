@@ -1,0 +1,34 @@
+<div class="alert alert-danger" ng-show="user.loginError">
+    <p>Cookies must be enabled for this application to run in Canvas</p>
+    <p>For Chrome:</p>
+    <ol>
+        <li>Click the menu button (three bars icon) in the right in the top menu and select <strong>Settings</strong></li>
+        <li>Click the <strong>Show advanced settings...</strong> link at the bottom.</li>
+        <li>Click the <strong>Content settings</strong> button under Privacy</li>
+        <li>Un-check the <strong>Block third-party cookies and site data</strong></li>
+        <li>OR click Manage exceptions and add "www.kblocks.com" and set to Allow</li>
+    </ol>
+    <p>For Firefox:</p>
+    <ol>
+        <li>Click the menu button (three bars icon) in the right in the top menu and select Preferences</li>
+        <li>Select the <strong>Privacy</strong> panel.</li>
+        <li>Set <strong>Firefox will:</strong> to <strong>Use custom settings for history</strong>.</li>
+        <li>Set <strong>Accept third-party cookies</strong> to <strong>From Visited</strong> or <strong>Always</strong></li>
+    </ol>
+    <p>For Safari:</p>
+    <ol>
+        <li>Click Safari in the top menu and select Preferences</li>
+        <li>Select the <strong>Privacy</strong> tab</li>
+        <li>Select <strong>Never</strong> for <strong>Block cookies and other website data</strong></li>
+        <li>Reload your browser</li>
+    </ol>
+</div>
+<h4 ng-hide="role.role_name">No role assigned</h4>
+<h4 ng-show="role.role_name">Your role is {{role.role_name}}</h4>
+<div ng-bind-html="role.role_description">
+</div>
+<ul>
+    <li ng-repeat="f in role.files">
+        <a ng-href="https://www.kblocks.com/app/assignment_router/files/{{role.assignment_id}}/{{f.file_name}}" ng-click="logDownload()" target="_blank">{{f.file_name}}</a>
+    </li>
+</ul>

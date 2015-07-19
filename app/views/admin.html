@@ -1,0 +1,48 @@
+<div class="k-bar" ng-hide="admin.assignment.canvas_assignment">
+    <select ng-model="admin.assignment" class="form-control"
+            ng-options="assignment as assignment.assignment_name for assignment in admin.assignments"
+            ng-change="getAssignment()">
+        <option>Select Assignment</option>
+    </select>
+    <input type="text" class="form-control" placeholder="Assignment ID" ng-model="admin.assignment.assignment_id">
+    <input type="text" class="form-control" placeholder="Assignment Name" ng-model="admin.assignment.assignment_name">
+    <button class="btn btn-default" ng-click="addAssignment()"><i class="fa fa-plus"></i> New</button>
+    <button class="btn btn-default" ng-click="updateAssignment()"><i class="fa fa-check"> Save</i></button>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="k-bar">
+            <input type="text" class="form-control" id="rolesInput" ng-model="admin.role.role_name" placeholder="Role Name">
+            <button class="btn btn-primary" ng-click="addRole()"><i class="fa fa-plus"></i> Add New Role</button>
+            <button class="btn btn-default" ng-click="saveRole()"><i class="fa fa-check"></i> Save Changes</button>
+        </div>
+        <div class="form-group">
+            <label>Role Text</label>
+            <textarea id="role_description" class="form-control" rows="15" placeholder="Enter text to be displayed for the role."></textarea>
+        </div>
+        <div ng-if="showGrid" ng-grid="rolesOptions" class="admin-grid"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="k-bar">
+            <select ng-model="admin.role_id" class="form-control" ng-options="role.role_id as role.role_name for role in admin.assignment.roles">
+                <option value="">-- Select Role --</option>
+            </select>
+            <div class="form-group" style="display: inline-block;"
+                 flow-init="{target: '/app/assignment_router/php/uploadFile.php', testChunks:false}"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-success="uploadComplete($file)"
+                 flow-file-added="addedFile($file, $event)">
+                    <span class="btn btn-default" flow-btn="">Upload File
+                        <input type="file" style="visibility: hidden; position: absolute;">
+                    </span>
+            </div>
+        </div>
+        <div ng-if="showGrid" ng-grid="filesOptions" class="admin-grid"></div>
+    </div>
+</div>
+<div class="row">
+    <div ng-if="showGrid" ng-grid="membersOptions" class="admin-grid"></div>
+</div>
